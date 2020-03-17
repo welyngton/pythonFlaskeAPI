@@ -32,7 +32,7 @@ def employeesList():
         ...]
     """
 
-    return jsonify(service.employeesList()), 200, {'Access-Control-Allow-Origin': 'http://localhost:4200'}
+    return jsonify(service.employeesList()), 200, {'Access-Control-Allow-Origin': '*'}
 
 
 # Return if employee is absent
