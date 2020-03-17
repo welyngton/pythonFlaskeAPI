@@ -32,7 +32,7 @@ def employeesList():
         ...]
     """
 
-    return jsonify(service.employeesList()), 200, {'Access-Control-Allow-Origin': 'localhost:4200'}
+    return jsonify(service.employeesList()), 200, {'Access-Control-Allow-Origin': 'http://localhost:4200'}
 
 
 # Return if employee is absent
@@ -55,7 +55,7 @@ def isAbsent():
                 "isAbsent": BOOL
             }
         """
-        return jsonify(service.isEmployeeAbsent(request.json)), 200, {'Access-Control-Allow-Origin': 'localhost:4200'}
+        return jsonify(service.isEmployeeAbsent(request.json)), 200, {'Access-Control-Allow-Origin': 'https://localhost'}
 
 
 # Status employee on specific day
