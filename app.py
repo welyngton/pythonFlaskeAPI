@@ -14,7 +14,7 @@ def hello():
 
 # List employees
 @app.route("/employeesList", methods=['GET'])
-@crossdomain(origin='*',headers=['access-control-allow-origin','Content-Type'])
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 def employeesList():
     """
     Expected request body
