@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask.ext.cors import CORS, cross_origin
 
 # Local pack
 from service import service
@@ -6,6 +7,7 @@ from service import service
 
 app = Flask(__name__)
 
+cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
 
 @app.route("/")
 def hello():
@@ -13,6 +15,8 @@ def hello():
 
 # List employees
 @app.route("/employeesList", methods=['GET'])
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
+@crossdomain(origin='*',headers=['access-control-allow-origin','Content-Type'])
 def employeesList():
     """
     Expected request body
@@ -32,7 +36,8 @@ def employeesList():
         ...]
     """
 
-    return jsonify(service.employeesList()), 200, {'Access-Control-Allow-Origin': '*'}
+    response = flask.jsonify(service.employeesList()), 200, {'Access-Control-Allow-Origin': '*'}
+    return response;
 
 
 # Return if employee is absent
