@@ -6,7 +6,7 @@ from service import service
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/foo": {"origins": "http://localhost:port"}})
+cors = CORS(app, resources={r"/employeesList": {"origins": "http://localhost:4200"}})
 
 @app.route("/")
 def hello():
